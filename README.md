@@ -1,2 +1,2 @@
 # DarwinBot
- Training an LSTM on the worlks of Charles Darwin
+ Training an LSTM on the works of Charles Darwin
