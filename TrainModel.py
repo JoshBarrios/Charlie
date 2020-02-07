@@ -1,7 +1,10 @@
 '''
 Josh Barrios 1/17/2020
+
 Training an LSTM model for text synthesis using the writings
 of Charles Darwin. Testing multiple hyperparameters for science.
+
+Adapted from "LSTM for text generation" on the Keras blog.
 '''
 
 from __future__ import print_function
@@ -18,7 +21,6 @@ import sys
 import io
 import os
 import pickle
-
 
 # read in text, all lowercase to avoid having to learn capitalization space
 with io.open('Darwin', encoding='utf-8') as f:
@@ -49,7 +51,7 @@ for i, sentence in enumerate(sentences):
         x[i, t, char_indices[char]] = 1
     y[i, char_indices[next_chars[i]]] = 1
 
-# build the model: 2x LSTM
+# build the model: 2x LSTM, each with 20% dropout
 print('Build model...')
 model = Sequential()
 model.add(LSTM(128, input_shape=(maxlen, len(chars)), return_sequences=True))
@@ -100,7 +102,7 @@ def on_epoch_end(epoch, _):
 
 print_callback = LambdaCallback(on_epoch_end=on_epoch_end)
 
-# Define learning rates to train models on
+# Define learning rates on which to train models
 learning_rates = [0.001, 0.002, 0.005, 0.1]
 
 for lr in learning_rates:

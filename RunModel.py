@@ -1,5 +1,6 @@
 '''
 Josh Barrios 1/17/2020
+
 Testing an LSTM model for text synthesis with a random string of text from Darwin's works
 '''
 
