@@ -1,5 +1,5 @@
 # <h1>DarwinBot</h1>
- Training an LSTM to mimic the writing style of naturalist Charles Darwin.
+ A deep-learning powered Charles Darwin ChatBot
  
  <h1>Installation</h1>
  
